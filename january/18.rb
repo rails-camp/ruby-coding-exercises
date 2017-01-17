@@ -15,3 +15,5 @@ def game
     end
   end
 end
+
+game
