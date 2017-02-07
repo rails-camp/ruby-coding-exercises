@@ -5,8 +5,8 @@ describe 'Find Element' do
     players = [
       [27, 'Jose Altuve'],
       [2,  'Alex Bregman'],
-      [1,        'Carlos Correa'],
-      [9,        'Marwin Gonzalez'],
+      [1,  'Carlos Correa'],
+      [9,  'Marwin Gonzalez'],
       [10, 'Yulieski Gurriel']
     ]
 
