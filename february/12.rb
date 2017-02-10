@@ -1,8 +1,8 @@
-require 'rspec'  # => true
+require 'rspec'
 
 def string_sum nums
-  nums.map(&:to_i).inject(&:+)  # => 210, 495550
-end                             # => :string_sum
+  nums.map(&:to_i).inject(&:+)
+end
 
 describe 'Summing Strings' do
   it 'sums an array of string based integers' do
