@@ -1,3 +1,4 @@
+require 'rspec'
 require 'attr_extras'
 
 class PurchaseOrder
@@ -20,3 +21,6 @@ describe 'Attr Extra refactor' do
     expect(po.client).to eq('Yahoo')
   end
 end
+
+po = PurchaseOrder.new('Google', 500)
+po.client
