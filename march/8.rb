@@ -1,8 +1,12 @@
 require 'rspec'
-require 'attr_extras'
 
 class PurchaseOrder
-  attr_accessor_initialize :client, :total
+  attr_accessor :client, :total
+
+  def initialize(client, total)
+    @client = client
+    @total = total
+  end
 
   def generate_order
     "#{client}: #{total}"
@@ -21,6 +25,3 @@ describe 'Attr Extra refactor' do
     expect(po.client).to eq('Yahoo')
   end
 end
-
-po = PurchaseOrder.new('Google', 500)
-po.client
