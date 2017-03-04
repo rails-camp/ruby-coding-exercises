@@ -1,3 +1,4 @@
+require 'rspec'
 require 'attr_extras'
 
 class PurchaseOrder
