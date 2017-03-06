@@ -1,3 +1,4 @@
+require 'rspec'
 require 'date'
 
 class Invoice
