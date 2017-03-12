@@ -13,6 +13,12 @@ string_array = [
 ]
 
 def string_parser string_array
+  new_array = []
+  string_array each do |s|
+    s.include? integer
+    new_array >> integer
+  end
+  new_array
 end
 
 describe "String Parser" do
