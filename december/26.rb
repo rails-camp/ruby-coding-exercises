@@ -1,6 +1,16 @@
 require 'rspec'
 
 years = (1900..1999).to_a
+leap_years = []
+
+
+years.each do |year|
+  if (year % 4 == 0) && !(year % 100 == 0) || (year % 400 == 0)
+    leap_years << year
+  end
+  leap_years
+end
+
 
 describe 'Leap year calculation' do
   it 'properly renders the leap years for the 20th century' do
