@@ -1,6 +1,7 @@
 require 'rspec'
 
 def new_max array_of_elements
+  array_of_elements.max
 end
 
 describe 'New Max method' do
