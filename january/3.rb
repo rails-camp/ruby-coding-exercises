@@ -1,11 +1,21 @@
 require 'rspec'
 
 class String
+
   def total_words
+    array = self.gsub(/[^a-zA-Z]/, " ").split(" ")
+    array.length
   end
 
   def word_list
+    result = Hash.new(0)
+    array = self.gsub(/[^a-zA-Z]/, " ").split(" ")
+    array.each do |word| 
+      result[word] += 1 
+    end
+    result
   end
+
 end
 
 describe 'Word Reporter' do
