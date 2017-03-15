@@ -9,10 +9,10 @@ require 'phone'
 # %x - the extension number
 
 def phone_builder number:, area_code:, country_code:, extension:
-  Phoner::Phone.new(number: '1234567',
-                    area_code: '480',
-                    country_code: '1',
-                    extension: '333')
+  Phoner::Phone.new(number: number,
+                    area_code: area_code,
+                    country_code: country_code,
+                    extension: extension)
 end
 
 def phone_parser number
