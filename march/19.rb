@@ -1,13 +1,5 @@
 require 'rspec'
 
-javascript_files = [
-  '//= require custom/scripts',
-  '//= require base/defaults',
-  '//= require html.sortable',
-  '//= require moment',
-  '//= require test-styles'
-]
-
 def append_js_file_extension required_files
   required_files.map do |file|
     file.gsub(/\/\/= require /, '')
@@ -16,10 +8,15 @@ def append_js_file_extension required_files
   end
 end
 
-append_js_file_extension javascript_files
-
 describe 'JavaScript file extension' do
   it 'converts require statements to javascript file name' do
+    javascript_files = [
+      '//= require custom/scripts',
+      '//= require base/defaults',
+      '//= require html.sortable',
+      '//= require moment',
+      '//= require test-styles'
+    ]
     expect(append_js_file_extension javascript_files).to eq([
                                                               'custom/scripts.js',
                                                               'base/defaults.js',
