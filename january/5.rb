@@ -1,6 +1,9 @@
 require 'rspec'
 
+# https://www.crondose.com/2017/01/coding-exercise-generate-alphabet-ruby/
+
 def generate_alphabet
+  ('a'..'z').to_a
 end
 
 describe 'Alphabet generator' do
