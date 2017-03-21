@@ -3,19 +3,21 @@ require 'rspec'
 
 def macbeth_counter
   xml_data = File.open('support/macbeth.xml')
-  hash = Hash.from_xml(xml_data)
+  unwrap_xml(xml_data).
+    group_by { |speaker, _| speaker }.
+    transform_values { |value| value.map(&:last).inject(:+) }
+end
 
-  counter_hash = Hash.new { |h, k| h[k] = 0 }
-
-  hash['PLAY']['ACT'].each do |k, v|
-    k['SCENE'].each do |k2, v2|
-      k2['SPEECH'].each do |k3, v3|
-        counter_hash[k3['SPEAKER']] += Array(k3['LINE']).count
+def unwrap_xml(data)
+  Enumerator.new do |y|
+    Hash.from_xml(data)['PLAY']['ACT'].each do |k|
+      k['SCENE'].each do |k2|
+        k2['SPEECH'].each do |k3|
+          y << [k3['SPEAKER'], Array(k3['LINE']).count]
+        end
       end
     end
   end
-
-  counter_hash
 end
 
 describe 'XML counter' do
