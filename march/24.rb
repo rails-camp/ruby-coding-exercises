@@ -30,7 +30,7 @@ class PNError < StandardError
   end
 end
 
-describe 'Reverse Polish notation calculator' do
+describe 'Prefix notation calculator' do
   it 'can perform addition' do
     expect(pn_calculator "+ 2 2").to eq(4)
     expect(pn_calculator "+ 10 200").to eq(210)
