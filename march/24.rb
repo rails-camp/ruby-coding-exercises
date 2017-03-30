@@ -25,7 +25,7 @@ def operator_is_valid? op
 end
 
 class PNError < StandardError
-  def initialize(msg = "Rpn Error")
+  def initialize(msg = "PN Error")
     super(msg)
   end
 end
