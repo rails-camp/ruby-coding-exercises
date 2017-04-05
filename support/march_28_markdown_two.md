@@ -1,0 +1,35 @@
+## Week 2
+### Monday
+- What we’ll learn today: *Our focus will be on the Model (M of our MVC framework).  The model represents data. Understanding how to create relationships with our models is vital to the process of requesting information from the database.  Ruby methods are important building blocks that will be found throughout your applications. They are used to create functionality.  Web developer tools allow you to quickly manipulate your CSS to see changes in real time.*
+- [Code exercise](https://rails.devcamp.com/daily-ruby-code-practice-exercises/december/efficiently-finding-largest-item-array-ruby)
+- Workshop  [Data Management in Rails](http://rails.devcamp.com/trails/dissecting-rails-5/campsites/data-management-rails)
+- Workshop  [Ruby methods](https://rails.devcamp.com/trails/ruby-programming/campsites/ruby-methods)
+- Workshop  [Guide to Using Web Developer Tools](https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/web-developer-tools)
+- Lecture   [Practical Approach to Development ](https://www.crondose.com/2016/08/practical-guide-approaching-project-development/)
+### Tuesday
+- What we’ll learn today: *Authentication is the process that allows a user to register, login, and logout of an application. In Ruby we will focus on process and lambdas and how lambdas might be the better choice for capturing the data we want.  For front end design we will discover how classes can help you reuse your code and the limits of ids.*
+- [Code exercise](https://rails.devcamp.com/daily-ruby-code-practice-exercises/december/converting-hash-url-friendly-string-ruby)
+- Workshop  [Implementing Authentication](https://rails.devcamp.com/trails/dissecting-rails-5/campsites/rails-5-authentication)
+- Workshop  [Ruby Procs and Lambdas](https://rails.devcamp.com/trails/ruby-programming/campsites/ruby-methods)
+- Workshop  HTML ID + classes: [Working with HTML IDs](https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/html-ids), [Working withHTML Classes](https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/html-classes)
+### Wednesday
+- What we’ll learn today: *Controllers (the C of MVC framework)  are essentially a ruby class  that store a series of actions (methods) that need to be performed.  Controllers manage our data by communicating with the routing engine of our app. (Controllers make sure there is Blog data in your blog page and not your about page). Our Ruby focus will be loops and how they easily apply the same code to multiple items.  CSS (cascading style sheets) will introduce you to ways you can give your app a unique look and feel.*
+- [Code exercise](https://rails.devcamp.com/daily-ruby-code-practice-exercises/december/how-to-generate-array-random-numbers-ruby)
+- Workshop  [Ruby on Rails Controllers](http://rails.devcamp.com/trails/dissecting-rails-5/campsites/ruby-on-rails-controllers)
+- Workshop  [Ruby loops and iterators](https://rails.devcamp.com/trails/ruby-programming/campsites/ruby-iterators-loops)
+- Workshop  CSS integration options + selectors: [Implementing Inline CSS Styles](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/inline-css-styles), [Using Embedded CSS Styles](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/embedded-css-styles), [Using CSS Best Practices with External Stylesheets](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/external-css-stylesheets), [How to Use CSS Selectors](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/css-selectors)
+- Lecture   [Uniqueness vs Best Practices](https://www.crondose.com/2016/06/best-practices-vs-creativity-developer/)
+### Thursday
+- What we’ll learn today: *Views (V of MVC) are what the user can actually see.  We will discover some best practices for keeping our views DRY and how we can make them effective and dynamic.  In Ruby we will discover how .map could be helpful when  dealing with APIs. We will look at how using CSS animations can bring emphasis to a portion of a webpage.*
+- [Code exercise](https://rails.devcamp.com/daily-ruby-code-practice-exercises/december/mapping-array-data-ruby)
+- Workshop  [Working with Views in Rails](http://rails.devcamp.com/trails/dissecting-rails-5/campsites/working-views-rails)
+- Workshop  [Introduction to Functional programming in Ruby with Map + Inject](https://rails.devcamp.com/trails/ruby-programming/campsites/ruby-iterators-loops)
+- Workshop  CSS style options: [Using CSS Animations](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/css-animations), [How to Add a Background Image to a Website](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/css-background-image-website), [Adding CSS Border Styles to HTML Elements](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/css-border-styles), [Rounding Div Corners with Border Radius Styles](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/css-border-radius-rounded-corners),[Customizing Height and Width Attributes in CSS](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/customizing-height-width-css)
+### Friday
+- What we’ll learn today: *Byebug is a powerful tool to discover why your code is breaking.  Debugging is a skill that employers are looking for when they hire developers. We will also cover some advanced CSS styling that will improve the user experience of your website/app.*
+- [Code exercise](https://rails.devcamp.com/daily-ruby-code-practice-exercises/december/december-20-parsing-string-multiple-matches)
+- Workshop  [Professional Debugging in Rails](http://rails.devcamp.com/trails/dissecting-rails-5/campsites/professional-debugging-rails)
+- Workshop  Advanced CSS: [How to Implement Custom Fonts in HTML and CSS](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/css-custom-fonts), [How to Add Custom Font Styles in CSS](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/css-custom-font-styles), [How to Properly Center Div Elements on a Page](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/how-to-center-div-elements), [Working with CSS Pseudo Class Selectors](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/css-pseudo-class-selectors), [Implementing Ease In Animations with CSS](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/ease-in-animations-css), [Customizing Bullet Points Using CSS](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/custom-bullet-points-css), [Using the CSS Float Property to Align Page Elements](https://rails.devcamp.com/html-css-coding-bootcamp/guide-css-styles/css-float-align-page-elements)
+- Lecture   [How to Learn a New Programming Language](https://www.crondose.com/2016/05/system-for-learning-a-new-programming-language/)
+- Writing or Screencast Assignment Due
+* * *
