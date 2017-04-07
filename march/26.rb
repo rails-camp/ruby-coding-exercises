@@ -7,8 +7,12 @@ class RPS
     @guess = guess.downcase
   end
 
+  def randomization_algorithm
+    rand 2342343
+  end
+
   def computer_guess
-    srand (@rand_seed || 2834234)
+    srand (@rand_seed || randomization_algorithm)
     computer_guesses = %w{rock paper scissors}
     computer_guesses.sample
   end
@@ -27,7 +31,7 @@ class RPS
     {
       'rock': ['scissors'],
       'paper': ['rock'],
-      'scissors': ['paper'],
+      'scissors': ['paper']
     }
   end
 end
@@ -53,3 +57,4 @@ describe RPS do
     expect(rps.winner_is).to eq('Tie')
   end
 end
+
