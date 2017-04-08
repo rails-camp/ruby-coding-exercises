@@ -1,73 +1,63 @@
 require 'rspec'
 
-def url_matcher
-  %r{
-    \b
-    (
-      (?: [a-z][\w-]+:
-       (?: /{1,3} | [a-z0-9%] ) |
-        www\d{0,3}[.] |
-        [a-z0-9.\-]+[.][a-z]{2,4}/
-      )
-      (?:
-       [^\s()<>]+ | \(([^\s()<>]+|(\([^\s()<>]+\)))*\)
-      )+
-      (?:
-        \(([^\s()<>]+|(\([^\s()<>]+\)))*\) |
-        [^\s`!()\[\]{};:'".,<>?«»“”‘’]
-      )
-    )
-  }ix
-end
+class RPS
+  attr_writer :rand_seed
 
-def content
-  c = File.read('support/march_28_markdown_one.md')
-  c << File.read('support/march_28_markdown_two.md')
-  c << File.read('support/march_28_markdown_three.md')
-  c << File.read('support/march_28_markdown_four.md')
-  c
-end
+  def initialize(guess:)
+    @guess = guess.downcase
+  end
 
-def syllabus_parser
-  # Implementation goes here
-end
+  def randomization_algorithm
+    rand 2342343
+  end
 
-describe 'markdown_parser' do
-  it 'parses a markdown file and groups elements into categories' do
-    three = {
-      :guide=>
-        [
-          "https://rails.devcamp.com/daily-ruby-code-practice-exercises/december/create-array-converter-method-ruby",
-          "https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/creating-page-components-div-tag",
-          "https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/implementing-inline-components-span-tag",
-          "https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/html-headings",
-          "https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/multi-line-content-paragraph-tags",
-          "https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/html-hyperlinks",
-          "https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/page-breaks-horizontal-rule-tag",
-          "https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/line-breaks-html-pages"
-        ],
-      :campsite=>
-        [
-          "http://rails.devcamp.com/trails/dissecting-rails-5/campsites/implementing-version-control",
-          "https://rails.devcamp.com/trails/ruby-programming/campsites/ruby-variables"
-        ]
+  def computer_guess
+    srand (@rand_seed || randomization_algorithm)
+    computer_guesses = %w{rock paper scissors}
+    computer_guesses.sample
+  end
+
+  def winner_is
+    if rule_engine[computer_guess.to_sym].include? @guess
+      'Computer wins'
+    elsif rule_engine[@guess.to_sym].include? computer_guess
+      'You win!'
+    else
+      'Tie'
+    end
+  end
+
+  def rule_engine
+    {
+      'rock': ['scissors'],
+      'paper': ['rock'],
+      'scissors': ['paper']
     }
+  end
+end
 
-    seven = {
-      :guide=>
-        [
-          "https://rails.devcamp.com/daily-ruby-code-practice-exercises/december/converting-hash-url-friendly-string-ruby",
-          "https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/html-ids",
-          "https://rails.devcamp.com/html-css-coding-bootcamp/guide-html/html-classes"
-        ],
-      :campsite=>
-        [
-          "https://rails.devcamp.com/trails/dissecting-rails-5/campsites/rails-5-authentication",
-          "https://rails.devcamp.com/trails/ruby-programming/campsites/ruby-methods"
-        ]
-    }
+rps = RPS.new(guess: "Rock")
+rps.winner_is
 
-    expect(syllabus_parser['three']).to eq(three)
-    expect(syllabus_parser['seven']).to eq(seven)
+
+describe RPS do
+  ## Note: Seeding the randomizer so the computer will always pick paper for testing
+
+  it 'paper beats rock' do
+    rps = RPS.new(guess: 'rock')
+    rps.rand_seed = 1
+    expect(rps.winner_is).to eq('Computer wins')
+  end
+
+  it 'paper loses to scissors' do
+    rps = RPS.new(guess: 'Scissors')
+    rps.rand_seed = 1
+    expect(rps.winner_is).to eq('You win!')
+  end
+
+  it 'paper ties with paper' do
+    rps = RPS.new(guess: 'paper')
+    rps.rand_seed = 1
+    expect(rps.winner_is).to eq('Tie')
   end
 end
