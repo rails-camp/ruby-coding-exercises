@@ -1,11 +1,8 @@
 require 'rspec'
-require 'pry'
 
 def subarray_sum arr, sum, starting_index = 0
   accumulator = 0
   subarr = []
-
-  binding.pry
 
   final_array = arr.drop(starting_index).map.with_index(starting_index) do |e, idx|
     accumulator += e
