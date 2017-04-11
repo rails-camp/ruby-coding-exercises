@@ -1,23 +1,29 @@
 require 'rspec'
 
-def subarray_sum arr, sum, starting_index = 0
-  accumulator = 0
-  subarr = []
+def subarray_sum arr, sum
+  if arr.size == 1 && arr.first == sum
+    return [0]
+  end
 
-  final_array = arr.drop(starting_index).map.with_index(starting_index) do |e, idx|
-    accumulator += e
-    subarr << idx
+  i = 0
+  j = 1
+  current_sum = arr[i]
 
-    return subarr if accumulator == sum
+  while j < arr.length
+    current_sum += arr[j]
+    j += 1
 
-    if accumulator > sum
-      starting_index += 1
-      subarray_sum(arr, sum, starting_index)
+    while current_sum > sum && i < j-1
+      current_sum -= arr[i]
+      i += 1
     end
-  end.compact.reject(&:empty?).first
 
-  return 'No subarray found' if final_array == nil
-  final_array
+    if current_sum == sum
+      return (i...j).to_a
+    end
+  end
+
+  'No subarray found'
 end
 
 arr = [1, 4, 0, 0, 3, 10, 5]
