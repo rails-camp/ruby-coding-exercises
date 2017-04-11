@@ -23,8 +23,6 @@ class Chat
   end
 end
 
-
-
 describe 'Message tracker' do
   before do
     @user_one = 'Jordan'
