@@ -24,7 +24,7 @@ describe FileWriter do
       file_path: file_path
     ).write
 
-    count = %x{wc -l #{file_path}}.split.first.to_i
+    count = File.foreach(file_path).count
     expect(count).to eq(1000)
   end
 end
