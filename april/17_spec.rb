@@ -1,6 +1,6 @@
 require 'rspec'
 
-describe 'group_by_character' do
+describe 'friendly_counter' do
   it 'can group a sequence of letters' do
     expect('aaabbbbbbccc'.friendly_counter).to eq("three a's, six b's, three c's")
   end
