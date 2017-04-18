@@ -1,0 +1,38 @@
+Explain the basic concepts of Test and Behavior Driven Development in modern software applications.
+Demonstrate how to utilize the Red/Green/Refactor workflow to build TDD based features.
+Discuss the various types of tests available in modern web applications: model, controller, resource, view, and features.
+Describe the difference between TDD and BDD in application development.
+Demonstrate how to properly structure an application's requirements in JIRA to manage feature development using Agile methodologies.
+Build UML models to provide a blueprint for the application's behavior.
+Explain the role of UML modeling as it applies to TDD/BDD driven projects.
+Explain how template generators work in Rails.
+Demonstrate how to configure a Rails application to utilize slim based templates.
+Use slim's syntax to include Ruby code inside of HTML files.
+Describe the requirements needed to implement a test suite in a Ruby on Rails application.
+Discuss the role of the RSpec testing framework, along with how it works with tools such as capybara to test user behavior.
+Demonstrate how to implement an integration test.
+Use TDD to build out the initial functionality of the application.
+Identify the proper time to use tests, along with when tests are unnecessary.
+Demonstrate how to utilize the UML models to build the application's features.
+Define the role of refactoring during the TDD/BDD process in order to write clean code.
+Explain how to implement the Patch/Diff design pattern with TDD.
+Discuss the rationale for implementing test mocks in an application.
+Demonstrate how to implement API mocks to integrate social media logins into an application.
+Identify the workflow for modeling complex data relationships by leveraging: UML, SQL queries, and ORM method calls.
+Demonstrate how to implement self referential database relationships to enable the concept of followers.
+Explain the role of authorization in an application.
+Demonstrate how to manually integrate authorization into an application. 
+Demonstrate how to refactor the authorization engine to use an outside code library.
+Define the differences between data flow for traditional REST based requests compared with web socket data communication.
+Demonstrate how to leverage TDD to test web socket features to build notifications into the application.
+Explain the core components associated with a proper messaging solution.
+Describe how to leverage TDD to test message based interactions between users.
+Define how to use outside mock libraries to add new API based features.
+Identify the key differences between mock/stub libraries for mimicking API behavior.
+Demonstrate how to implement background jobs in order to share posts on social media outlets.
+Use API design tool in order to build out framework and documentation for API.
+Demonstrate how to leverage the API design in order to build a REST based API via TDD.
+Explain how to leverage TDD unit tests to build a complex algorithm.
+Demonstrate how to implement a weighted algorithm to generate a popularity index.
+Extending mocks/stub tests to the Twilio API for testing the receipt and parsing of SMS messages.
+Demonstrate how to parse JSON based API data and store it in the database.
