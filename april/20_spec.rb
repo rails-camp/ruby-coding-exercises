@@ -31,8 +31,6 @@ Summer = Struct.new(:nums) do
   end
 end
 
-p Summer.while_sum([4, 11, 42, 12, 21])
-
 describe Summer do
   it 'can sum numbers using a for loop' do
     total = Summer.for_sum([1, 4, 11, 42, 12, 21])
