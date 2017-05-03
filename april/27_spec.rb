@@ -1,12 +1,5 @@
 require 'rspec'
 
-def string_values(columns)
-  columns.each_with_object("") do |column, str|
-    return str << "'#{column}'" if column == columns.last
-    str << "'#{column}', "
-  end
-end
-
 def sql_generator(*columns, number:, table_name:)
   final_sql = ""
 
