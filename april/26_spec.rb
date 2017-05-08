@@ -5,7 +5,7 @@ class BaggageClaim
     @bags = bags
   end
 
-  def method_missing(method_name, *arguments, &block)
+  def method_missing(method_name)
     if method_name.to_s =~ /from_(.*)/
       city = Regexp.last_match(1)
       @bags.each_with_object(Hash.new) do |bag, hash|
