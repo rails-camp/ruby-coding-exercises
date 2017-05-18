@@ -1,116 +1,28 @@
 require 'rspec'
-require 'awesome_print'
-require 'pry'
 
-class Battleship
-  def initialize(name:)
-    @name = name
-    current_board = Board.new
-  end
+# Reference
+# https://blog.daftcode.pl/fixing-unicode-for-ruby-developers-60d7f6377388
 
-  def current_board
+class String
+  def username_cleaner
+    unicode_normalize(:nfkc).upcase
   end
 end
 
-class Board
-  attr_reader :board
+describe 'understanding idempotent methods' do
+  it 'converts unicode characters and ignores cases to match usernames' do
+    supplied_username_one = "myusernᵃme".username_cleaner
+    supplied_username_two = "myusername".username_cleaner
+    database_username =  "MYUSERNAME"
 
-  def initialize
-    @board = empty_board
-    @ships = ships
+    expect(supplied_username_one == database_username).to eq(true)
+    expect(supplied_username_two == database_username).to eq(true)
   end
 
-  def populate_board
-    @ships.each do |ship|
-      range_generator(ship)
-    end
-  end
+  it 'returns false if the usernames do not match' do
+    wrong_username = "usernᵃme".username_cleaner
+    database_username =  "MYUSERNAME"
 
-  def range_generator(ship)
-    @ship = ship.flatten
-
-    starter_key = @board.keys.shuffle.find do |key|
-      @board[key] == []
-    end
-
-    starter_letter = starter_key.split(//).first
-    starter_number_as_int = starter_key.scan(/\d+/).first.to_i
-
-    if @ship.last == 'horizontal'
-      final_letter = alphabet_index[alphabet_index.index(starter_letter) + @ship[1] - 1]
-
-      if final_letter == nil
-        range_generator(@ship)
-      end
-
-      (starter_letter..final_letter).each do |letter|
-        @board[letter + starter_number_as_int.to_s] = @ship.first
-      end
-    else
-      final_number = starter_number_as_int + @ship[1] - 1
-
-      if final_number > 10
-        range_generator(@ship)
-      end
-
-      (starter_number_as_int..final_number).each do |number|
-        @board[starter_letter + number.to_s] = @ship.first
-      end
-    end
-  end
-
-  def spot_taken?
-  end
-
-  def alphabet_index
-    ('a'..'j').to_a
-  end
-
-  def empty_board
-    grid.each_with_object(Hash.new) do |node, hash|
-      hash[node] = []
-    end
-  end
-
-  def grid
-    ('1'..'10').map do |number|
-      ('a'..'j').map { |letter| letter += number }
-    end.flatten
-  end
-
-  def ships
-    {
-      'carrier':    [5, direction],
-      'battleship': [4, direction],
-      'cruiser':    [3, direction],
-      'submarine':  [3, direction],
-      'destroyer':  [2, direction],
-    }
-  end
-
-  def direction
-    %w{horizontal vertical}.sample
-  end
-end
-
-b = Board.new
-b.populate_board
-ap b.board
-
-describe Battleship do
-  it 'can build a board' do
-    expect(b.current_board).to eq(board)
-  end
-
-  it 'allows a user to guess a location on the board' do
-
-  end
-
-  it 'recognizes hits' do
-
-  end
-
-  it 'recognizes misses' do
-
+    expect(wrong_username == database_username).to eq(false)
   end
 end
