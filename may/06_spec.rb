@@ -1,116 +1,45 @@
 require 'rspec'
-require 'awesome_print'
-require 'pry'
 
-class Battleship
-  def initialize(name:)
-    @name = name
-    current_board = Board.new
+class ContentSorter
+  def initialize(str)
+    @delimiters = %w{. , ;}
+    @str = str
   end
 
-  def current_board
+  def shuffled_content
+    section = []
+
+    split_array = @str.chars.each_with_object([]) do |element, arr|
+      section << element
+      if @delimiters.include?(element) && section.count >= 20
+        arr << section.join
+        section.clear
+      end
+    end
+
+    split_array.shuffle
   end
 end
 
-class Board
-  attr_reader :board
+describe ContentSorter do
+  it 'shuffles text based content and splits it by section length and delimiters' do
+    content = <<~EOL
+      Chuck Norris doesn't delete files, he blows them away.
+      Chuck Norris' addition operator doesn't commute; it teleports to where he needs it to be.
+      Chuck Norris doesn't have performance bottlenecks. He just makes the universe wait its turn.
+      Whiteboards are white because Chuck Norris scared them that way.
+      No statement can catch the ChuckNorrisException.
+      Chuck Norris can recite π. Backwards.
+      When Chuck Norris gives a method an argument, the method loses.
+      Chuck Norris's first program was kill -9.
+      Chuck Norris doesn't get compiler errors, the language changes itself to accommodate Chuck Norris.
+    EOL
 
-  def initialize
-    @board = empty_board
-    @ships = ships
-  end
+    srand 1
+    sc = ContentSorter.new(content.gsub("\n", '')).shuffled_content
 
-  def populate_board
-    @ships.each do |ship|
-      range_generator(ship)
-    end
-  end
+    expected_result = ["Chuck Norris' addition operator doesn't commute;", " it teleports to where he needs it to be.", "Chuck Norris doesn't have performance bottlenecks.", " the method loses.Chuck Norris's first program was kill -9.", " he blows them away.", "Whiteboards are white because Chuck Norris scared them that way.", "Chuck Norris doesn't delete files,", "No statement can catch the ChuckNorrisException.", " the languagechanges itself to accommodate Chuck Norris.", " Backwards.When Chuck Norris gives a method an argument,", "Chuck Norris can recite π.", "Chuck Norris doesn't get compiler errors,", " He just makes the universe wait its turn."]
 
-  def range_generator(ship)
-    @ship = ship.flatten
-
-    starter_key = @board.keys.shuffle.find do |key|
-      @board[key] == []
-    end
-
-    starter_letter = starter_key.split(//).first
-    starter_number_as_int = starter_key.scan(/\d+/).first.to_i
-
-    if @ship.last == 'horizontal'
-      final_letter = alphabet_index[alphabet_index.index(starter_letter) + @ship[1] - 1]
-
-      if final_letter == nil
-        range_generator(@ship)
-      end
-
-      (starter_letter..final_letter).each do |letter|
-        @board[letter + starter_number_as_int.to_s] = @ship.first
-      end
-    else
-      final_number = starter_number_as_int + @ship[1] - 1
-
-      if final_number > 10
-        range_generator(@ship)
-      end
-
-      (starter_number_as_int..final_number).each do |number|
-        @board[starter_letter + number.to_s] = @ship.first
-      end
-    end
-  end
-
-  def spot_taken?
-  end
-
-  def alphabet_index
-    ('a'..'j').to_a
-  end
-
-  def empty_board
-    grid.each_with_object(Hash.new) do |node, hash|
-      hash[node] = []
-    end
-  end
-
-  def grid
-    ('1'..'10').map do |number|
-      ('a'..'j').map { |letter| letter += number }
-    end.flatten
-  end
-
-  def ships
-    {
-      'carrier':    [5, direction],
-      'battleship': [4, direction],
-      'cruiser':    [3, direction],
-      'submarine':  [3, direction],
-      'destroyer':  [2, direction],
-    }
-  end
-
-  def direction
-    %w{horizontal vertical}.sample
-  end
-end
-
-b = Board.new
-b.populate_board
-ap b.board
-
-describe Battleship do
-  it 'can build a board' do
-    expect(b.current_board).to eq(board)
-  end
-
-  it 'allows a user to guess a location on the board' do
-
-  end
-
-  it 'recognizes hits' do
-
-  end
-
-  it 'recognizes misses' do
-
+    expect(sc).to eq(expected_result)
   end
 end
