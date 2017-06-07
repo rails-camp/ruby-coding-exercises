@@ -2,12 +2,19 @@ require 'rspec'
 
 Node = Struct.new(:prev, :next, :val)
 
+x = Node.new(nil, nil, 5)
 
-z.prev.val
-z.next.val
+y = Node.new(x, nil, 10)
+
+x.next = y
+
+x
+y
+
+x.prev
+x.next
 
 class LinkedList
-
 end
 
 describe LinkedList do
@@ -18,6 +25,5 @@ describe LinkedList do
   end
 
   it 'can return a full list of values' do
-    ll = 
   end
 end
