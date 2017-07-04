@@ -1,29 +1,23 @@
 require 'rspec'
 
-Node = Struct.new(:prev, :next, :val)
-
-x = Node.new(nil, nil, 5)
-
-y = Node.new(x, nil, 10)
-
-x.next = y
-
-x
-y
-
-x.prev
-x.next
-
-class LinkedList
+def hash_sum(hash)
+  return 0 if hash.empty?
+  hash.values.inject(&:+)
 end
 
-describe LinkedList do
-  before do
-    @x = Node.new(nil, z, 5)
-    @y = Node.new(x, z, 9)
-    @z = Node.new(y, nil, 10)
+describe 'Hash sum' do
+  it 'returns the sum of a hash where the values contain numbers' do
+    invoices = {
+      google: 100.0,
+      yahoo: 105.22,
+      twitter: 42.50
+    }
+
+    expect(hash_sum(invoices)).to eq(247.72)
   end
 
-  it 'can return a full list of values' do
+  it 'returns 0 for an empty hash' do
+    empty_hash = {}
+    expect(hash_sum(empty_hash)).to eq(0)
   end
 end
