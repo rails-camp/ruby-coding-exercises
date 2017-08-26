@@ -1,12 +1,6 @@
 require 'rspec'
 
 def first_repeated_element(arr)
-  counter_hash = Hash.new { 0 }
-
-  arr.each do |e|
-    counter_hash[e] = counter_hash[e] += 1
-    return e if counter_hash[e] > 1
-  end
 end
 
 describe 'first_repeated_element' do
