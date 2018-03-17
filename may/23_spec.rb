@@ -1,11 +1,6 @@
 require 'rspec'
 
 def weighted_lottery(weights)
-  weights.each_with_object([]) do |(weight_key, weight_val), container_arr|
-    weight_val.times do
-      container_arr << weight_key
-    end
-  end.sample
 end
 
 weights = {
