@@ -1,20 +1,6 @@
 require 'rspec'
 
 class ArrayHelper
-  def initialize(arr)
-    @arr = arr
-    @at_beginning = true
-  end
-
-  def pop
-    if @at_beginning
-      @at_beginning = false
-      @arr.shift
-    else
-      @at_beginning = true
-      @arr.pop
-    end
-  end
 end
 
 describe 'front_and_back_popper' do
