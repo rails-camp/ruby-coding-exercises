@@ -1,8 +1,6 @@
 require 'rspec'
 
 def manual_sum(arr)
-  return 0 if !arr.any?
-  arr.inject(&:+)
 end
 
 describe 'manual_sum' do
