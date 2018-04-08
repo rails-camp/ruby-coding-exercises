@@ -1,8 +1,6 @@
 require 'rspec'
 
 def pretty_price(gross_cost:, decimal_extension:)
-  decimal_extension = (decimal_extension * 0.01) if decimal_extension.is_a?(Integer)
-  Integer(gross_cost) + decimal_extension
 end
 
 describe '.pretty_price' do
