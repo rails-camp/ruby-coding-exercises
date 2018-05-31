@@ -1,12 +1,29 @@
 require 'rspec'
 
 module ArrayHelper
+  def self.abstract_min_max(arr, min: nil, max: nil)
+    num = arr[0]
+
+    operator = '<' if min
+    operator = '>' if max
+
+    arr.each { |el| num = el if el.public_send(operator, num) }
+
+    num
+  end
+
   def self.manual_min(arr)
-    arr.sort[0]
+    # naive O(n lg n)
+    # arr.sort[0]
+
+    abstract_min_max(arr, min: true)
   end
 
   def self.manual_max(arr)
-    arr.sort[-1]
+    # naive O(n lg n)
+    # arr.sort[-1]
+
+    abstract_min_max(arr, max: true)
   end
 end
 
