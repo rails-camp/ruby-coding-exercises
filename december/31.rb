@@ -5,6 +5,13 @@ require 'rspec'
 # $
 
 def currency_converter amount, location
+  if location == 'US'
+    '$' + amount.to_s + '.00'
+  elsif location == 'Japan'
+    '¥' + amount.to_s
+  elsif location == 'UK'
+    '£' + amount.to_s + ',00'
+  end
 end
 
 describe 'Currency converter' do
